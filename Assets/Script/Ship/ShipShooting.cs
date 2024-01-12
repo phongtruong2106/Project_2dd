@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipShooting : MonoBehaviour
@@ -14,7 +12,9 @@ public class ShipShooting : MonoBehaviour
     protected virtual void Shooting()
     {
         if(!this.isShooting) return;
-        Instantiate(this.bulletPrefab);
+        Vector3 spawnPos = transform.position;
+        Quaternion rotation = transform.parent.rotation;
+        Instantiate(this.bulletPrefab, spawnPos, rotation);
         Debug.Log("Shooting");
     }
 }

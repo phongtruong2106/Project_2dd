@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ShipShooting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] protected bool isShooting = false;
+    [SerializeField] protected Transform bulletPrefab;
+
+    private void FixedUpdate() {
+        this.Shooting();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Shooting()
     {
-        
+        if(!this.isShooting) return;
+        Instantiate(this.bulletPrefab);
+        Debug.Log("Shooting");
     }
 }

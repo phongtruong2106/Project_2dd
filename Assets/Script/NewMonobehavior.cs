@@ -7,6 +7,7 @@ public class NewMonobehavior : MonoBehaviour
     protected virtual void Reset()
     {
         this.LoadComponents();
+        this.ResetValue();
     }
     protected virtual void Start()
     {
@@ -18,6 +19,10 @@ public class NewMonobehavior : MonoBehaviour
         this.LoadComponents();
     }
     protected virtual void LoadComponents()
+    {
+        //for override
+    }
+    protected virtual void ResetValue()
     {
         //for override
     }

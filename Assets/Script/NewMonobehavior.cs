@@ -26,4 +26,9 @@ public class NewMonobehavior : MonoBehaviour
     {
         //for override
     }
+
+    protected virtual void OnEnable()
+    {
+        //for override
+    }
 }

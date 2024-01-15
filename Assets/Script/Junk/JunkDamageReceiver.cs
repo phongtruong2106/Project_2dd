@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JunkDamageRecever : DamageReceiver
@@ -11,6 +12,7 @@ public class JunkDamageRecever : DamageReceiver
     {
         base.LoadComponents();
         this.LoadJunkControler();
+        this.Reborn();//
     }
 
     protected virtual void LoadJunkControler()
@@ -24,5 +26,11 @@ public class JunkDamageRecever : DamageReceiver
     {
         base.OnDead();
         this.junkControler.JunkDespawn.DespawnObject();
+    }
+
+    public override void Reborn()
+    {
+        this.maxHp = this.junkControler.JunkSO.hpMax;
+        base.Reborn();
     }
 }

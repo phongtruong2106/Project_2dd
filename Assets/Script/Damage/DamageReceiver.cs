@@ -20,7 +20,7 @@ public class DamageReceiver : NewMonobehavior
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadCollider();
+        this.LoadCollider();  
     }
 
     protected virtual void LoadCollider()
@@ -34,6 +34,7 @@ public class DamageReceiver : NewMonobehavior
     public virtual void Reborn()
     {
         this.hp = this.maxHp;
+        this.isDead = false;
     }
 
     public virtual void Add(int add)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,8 @@ public class BulletSpawner : Spawner
         
     }
 
-
+    public static implicit operator BulletSpawner(FXSpawner v)
+    {
+        throw new NotImplementedException();
+    }
 }

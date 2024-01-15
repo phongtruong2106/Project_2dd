@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DamageReceiver : NewMonobehavior
+public abstract class DamageReceiver : NewMonobehavior
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider; 
@@ -65,8 +65,5 @@ public class DamageReceiver : NewMonobehavior
         this.OnDead();
     }
 
-    protected virtual void OnDead()
-    {
-        //for override
-    }
+    protected abstract void OnDead();
 }

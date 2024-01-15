@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JunkDespawn : DesSpawnByDistance
 {
-    protected override void DespawnObject()
+    public override void DespawnObject()
     {
         JunkSpawner.Instance.Despawn(transform.parent);
     }

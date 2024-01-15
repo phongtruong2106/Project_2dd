@@ -14,6 +14,7 @@ public class BulletSpawner : Spawner
         base.Awake();
         if(BulletSpawner.instance != null) Debug.LogError("Only one BulletSpawner allow to exist");
         BulletSpawner.instance = this;
+        
     }
 
 

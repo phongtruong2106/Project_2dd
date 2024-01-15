@@ -794,10 +794,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 648220542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dedce00c0a33d2b4f99a4cf7c0cbd011, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bab5c752b817974eabc30681a3b3bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  bulletControler: {fileID: 1054774602}
 --- !u!1 &649460805
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 477291202}
+  junkDespawn: {fileID: 887014566}
 --- !u!1 &728689499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1204,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1054774601}
   - component: {fileID: 1054774602}
-  - component: {fileID: 1054774603}
   m_Layer: 0
   m_Name: Bullet_1
   m_TagString: Untagged
@@ -1243,27 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSender: {fileID: 648220544}
---- !u!135 &1054774603
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054774600}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.08
-  m_Center: {x: 0, y: 0, z: 0}
+  bulletDespawn: {fileID: 1459192979}
 --- !u!1 &1177088847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1767,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 649460806}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2120357146
+--- !u!114 &2120357146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120357144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8777e4f9a4f58d54e9057a7db8ec634c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 2120357147}
+  hp: 1
+  maxHp: 1
+  isDead: 0
+  junkControler: {fileID: 649460807}
+--- !u!135 &2120357147
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1805,22 +1803,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.27095065
-  m_Center: {x: 0.0031613354, y: 0, z: 0}
---- !u!114 &2120357147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120357144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9d31a78e67c6a449b2e88b386b7b2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 1
-  maxHp: 1
+  m_Radius: 0.27
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2121224382
 GameObject:
   m_ObjectHideFlags: 0

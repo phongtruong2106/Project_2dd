@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 1
   itemType: 1
-  itemName: IronOre
+  itemName: Iron Ore
   defaultMaxStack: 7

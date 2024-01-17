@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickupAble : JunkAbstract
+public class ItemPickupAble : ItemAbstract
 {
     [Header("Item Pickupable")]
     [SerializeField] protected SphereCollider _collider;
@@ -9,7 +9,16 @@ public class ItemPickupAble : JunkAbstract
     //giai thuat chuyen doi kieu enum -> string
     public static ItemCode String2ItemCode(string itemName)
     {
-        return (ItemCode)Enum.Parse(typeof(ItemCode), itemName);
+        try
+        {
+            return (ItemCode)Enum.Parse(typeof(ItemCode), itemName);
+        }
+        catch(ArgumentException e)
+        {
+            Debug.LogError(e.ToString());
+            return ItemCode.NoItem;
+        }
+
     }
     protected override void LoadComponents()
     {
@@ -23,7 +32,7 @@ public class ItemPickupAble : JunkAbstract
         {
             this._collider = transform.GetComponent<SphereCollider>();
             this._collider.isTrigger = true;
-            this._collider.radius = 0.07f;
+            this._collider.radius = 0.2f;
             Debug.Log(transform.name + ": LoadIsTrigger", gameObject);
         }
     }
@@ -34,7 +43,11 @@ public class ItemPickupAble : JunkAbstract
 
     public virtual void Pickup()
     {
-        this.junkControler.JunkDespawn.DespawnObject();
+        this.itemControler._itemDespawn.DespawnObject();
     }
-
+ 
+    public virtual void OnMouseDown()
+    {
+        PlayerControler.Instance.PlayerPickup.ItemPickup(this);
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class JunkAbstract : NewMonobehavior
 {
+    [Header("Junk Abstract")]
     [SerializeField] protected JunkControler junkControler;
     public JunkControler JunkControler {get => junkControler;}
 

@@ -9,7 +9,10 @@ public class ItemUpgraded : InventoryAbstract
     protected override void Start()
     {
         base.Start();
-        Invoke(nameof(this.Test), 2);
+        Invoke(nameof(this.Test),2);
+        Invoke(nameof(this.Test), 3);
+        Invoke(nameof(this.Test), 3);
+
     }
 
     protected virtual void Test()

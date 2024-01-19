@@ -7,7 +7,8 @@ public class PlayerPickup : PlayerAbstract
         Debug.Log("ItemPickup");
 
         ItemCode itemCode = itemPickupAble.GetItemCode();
-        if(this.playerControler.CurrentShip.Inventory.AddItem(itemCode, 1))
+        ItemInventory itemInventory = itemPickupAble._itemControler._itemInventory;
+        if(this.playerControler.CurrentShip.Inventory.AddItem(itemInventory))
         {
             itemPickupAble.Pickup();
         }

@@ -16,3 +16,4 @@ MonoBehaviour:
   itemType: 1
   itemName: Gold Ore
   defaultMaxStack: 7
+  upgradeLevels: []

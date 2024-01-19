@@ -3254,7 +3254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 0.05
+  speed: 0.002
 --- !u!1 &2120357144
 GameObject:
   m_ObjectHideFlags: 0

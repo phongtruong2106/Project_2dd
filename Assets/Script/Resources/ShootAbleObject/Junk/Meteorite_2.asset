@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0650065683de2f147b30031c98f5d43c, type: 3}
   m_Name: Meteorite_2
   m_EditorClassIdentifier: 
-  objName: Meteorite_1
-  hpMax: 2
+  objName: Meteorite_2
+  objType: 1
+  hpMax: 5
   dropList:
-  - itemSO: {fileID: 11400000, guid: 14a32b20d74482c42aead823534a7992, type: 2}
+  - itemSO: {fileID: 11400000, guid: 3f44503d8ae697e47a9618cdf31f51f8, type: 2}
     dropRate: 100000
     minDrop: 0
     maxDrop: 0

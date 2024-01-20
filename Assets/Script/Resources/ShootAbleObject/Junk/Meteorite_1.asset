@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Meteorite_1
   m_EditorClassIdentifier: 
   objName: Meteorite_1
+  objType: 1
   hpMax: 2
   dropList:
   - itemSO: {fileID: 11400000, guid: 14a32b20d74482c42aead823534a7992, type: 2}

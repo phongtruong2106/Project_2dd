@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdaf54b6c5be3f5468ce1dd24cca493c, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  itemCode: 0
-  itemType: 0
-  itemName: no-name
+  itemCode: 3
+  itemType: 2
+  itemName: Sword
   defaultMaxStack: 7
-  upgradeLevels: []
+  upgradeLevels:
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 3f44503d8ae697e47a9618cdf31f51f8, type: 2}
+      ItemCount: 6
+    - itemProfile: {fileID: 11400000, guid: 14a32b20d74482c42aead823534a7992, type: 2}
+      ItemCount: 13
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 3f44503d8ae697e47a9618cdf31f51f8, type: 2}
+      ItemCount: 6
+    - itemProfile: {fileID: 11400000, guid: 14a32b20d74482c42aead823534a7992, type: 2}
+      ItemCount: 2
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 3f44503d8ae697e47a9618cdf31f51f8, type: 2}
+      ItemCount: 6
+    - itemProfile: {fileID: 11400000, guid: 14a32b20d74482c42aead823534a7992, type: 2}
+      ItemCount: 5

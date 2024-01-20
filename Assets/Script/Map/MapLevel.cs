@@ -15,4 +15,6 @@ public class MapLevel : LevelByDistance
 
         this.SetTarget(currentShip.transform);
     }
+
+    
 }

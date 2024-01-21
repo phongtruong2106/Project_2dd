@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipShooting : MonoBehaviour
+public abstract class ShipShooting : NewMonobehavior 
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected float shootDelay = 1f;
@@ -33,9 +33,5 @@ public class ShipShooting : MonoBehaviour
         bulletControler.SetShooter(transform.parent);
     }
 
-    protected virtual bool IsShooting()
-    {
-        this.isShooting = InputManager.Instance.OnFiring == 1;
-        return this.isShooting;
-    }
+    protected abstract bool IsShooting();
 }

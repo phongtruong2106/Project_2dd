@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpawnPoint : NewMonobehavior
+public class SpawnPoint : NewMonobehavior
 {
     [SerializeField] protected List<Transform> points;
 

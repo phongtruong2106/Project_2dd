@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ShipShooting : NewMonobehavior 
+public abstract class ObjectShooting : NewMonobehavior 
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected float shootDelay = 1f;

@@ -1,9 +1,8 @@
-
 using UnityEngine;
 
 public class EnemySpawner : Spawner
 {
-     protected static EnemySpawner instance;
+    protected static EnemySpawner instance;
     public static EnemySpawner _instance => instance;
 
     protected override void Awake() 

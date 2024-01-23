@@ -636,6 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157486101}
   - component: {fileID: 157486100}
+  - component: {fileID: 157486102}
   m_Layer: 0
   m_Name: MotherShip_2
   m_TagString: Untagged
@@ -659,6 +660,8 @@ MonoBehaviour:
   despawn: {fileID: 1496545903}
   shootAbleObject: {fileID: 11400000, guid: 40b09f3d3398f4548bbffa1c2701df36, type: 2}
   objectShooting: {fileID: 1950096401}
+  objectMovement: {fileID: 1192939243}
+  objectLookAtTarget: {fileID: 157337998}
   spawnPoint: {fileID: 965455242}
 --- !u!4 &157486101
 Transform:
@@ -683,6 +686,21 @@ Transform:
   - {fileID: 74249962}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &157486102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157486099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a517a4b4205d6b74c92368f163b7140b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootAbleObjectControler: {fileID: 157486100}
+  speed: 0.005
+  rotSpeed: 0.01
 --- !u!1 &190466452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,6 +4146,8 @@ MonoBehaviour:
   despawn: {fileID: 1344772991}
   shootAbleObject: {fileID: 11400000, guid: d4faa5e7b71570c43a2be2b2c6ec3243, type: 2}
   objectShooting: {fileID: 1231363587}
+  objectMovement: {fileID: 1376575700}
+  objectLookAtTarget: {fileID: 1764464646}
   spawnPoint: {fileID: 1560412313}
 --- !u!1 &1416072433
 GameObject:
@@ -4767,6 +4787,8 @@ MonoBehaviour:
   despawn: {fileID: 548137518}
   shootAbleObject: {fileID: 11400000, guid: 05de074e58e03b141b029a57a3d02972, type: 2}
   objectShooting: {fileID: 1929853254}
+  objectMovement: {fileID: 0}
+  objectLookAtTarget: {fileID: 0}
   spawnPoint: {fileID: 1538849918}
 --- !u!4 &1639901307
 Transform:

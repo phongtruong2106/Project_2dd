@@ -11,6 +11,10 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
     public ShootAbleObjectSO _shootAbleObject => shootAbleObject;
     [SerializeField] protected ObjectShooting objectShooting;
     public ObjectShooting _objectShooting => objectShooting;
+    [SerializeField] protected ObjectMovement objectMovement;
+    public ObjectMovement _objectMovement => objectMovement;
+    [SerializeField] protected ObjectLookAtTarget objectLookAtTarget;
+    public ObjectLookAtTarget _objectLookAtTarget => objectLookAtTarget;
 
 
     protected override void LoadComponents()
@@ -20,6 +24,8 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
         this.LoadDesqawn();
         this.LoadSO();
         this.LoadObjShooting();
+        this.LoadObjMovement();
+        this.LoadObjLookAtTarget();
     }
 
     protected virtual void LoadModel()
@@ -50,5 +56,18 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
         Debug.LogWarning(transform.name + ": LoadJunkSO " + resPath, gameObject);
     }
 
+     protected virtual void LoadObjMovement()
+    {
+        if(this.objectMovement != null) return;
+        this.objectMovement = GetComponentInChildren<ObjectMovement>();
+        Debug.LogWarning(transform.name + ": LoadObjectMovement", gameObject);
+    }
+
+    protected virtual void LoadObjLookAtTarget()
+    {   
+        if(this.objectLookAtTarget != null) return;
+        this.objectLookAtTarget = GetComponentInChildren<ObjectLookAtTarget>();
+        Debug.LogWarning(transform.name + ": LoadObjLookAtTarget", gameObject);
+    }
     protected abstract string GetObjectTypeString();
 }

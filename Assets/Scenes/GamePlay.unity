@@ -1491,7 +1491,7 @@ Transform:
   m_GameObject: {fileID: 552446476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.305, y: 0.264, z: 0}
+  m_LocalPosition: {x: -0.618, y: 0.264, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2400,7 +2400,7 @@ Transform:
   m_GameObject: {fileID: 877628170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3344,6 +3344,8 @@ MonoBehaviour:
   delay: 2
   isRead: 0
   spawner: {fileID: 2027008092}
+  minion: []
+  minionLimit: 4
 --- !u!1 &1192939241
 GameObject:
   m_ObjectHideFlags: 0
@@ -5159,7 +5161,7 @@ Transform:
   m_GameObject: {fileID: 1773674408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.802, y: -0.232, z: 0}
+  m_LocalPosition: {x: -1.212, y: -0.232, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5832,7 +5834,7 @@ MonoBehaviour:
   spawnerControler: {fileID: 2027008094}
   randomTimer: 0
   randomDelay: 1
-  randomLimit: 9
+  randomLimit: 2
 --- !u!114 &2027008094
 MonoBehaviour:
   m_ObjectHideFlags: 0

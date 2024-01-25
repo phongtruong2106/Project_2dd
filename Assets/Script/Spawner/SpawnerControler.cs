@@ -27,7 +27,7 @@ public class SpawnerControler : NewMonobehavior
     protected virtual void LoadSpawnPoint()
     {
         if(this.spawnPoints != null) return;
-        this.spawnPoints = Transform.FindAnyObjectByType<SpawnPoint>();
+        this.spawnPoints = GameObject.Find("SceneSpawnPoint").GetComponent<SpawnPoint>();
         Debug.Log(transform.name + ": LoadSpawnPoints", gameObject);
     }
 }

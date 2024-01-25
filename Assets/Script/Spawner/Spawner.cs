@@ -21,7 +21,7 @@ public abstract class Spawner : NewMonobehavior
     {
         if(this.holder != null) return;
         this.holder = transform.Find("Holder");
-        Debug.Log(transform.name + ": LoadHolder", gameObject);
+        Debug.LogWarning(transform.name + ": LoadHolder", gameObject);
     }
 
     protected virtual void LoadPrefabs()
@@ -34,7 +34,7 @@ public abstract class Spawner : NewMonobehavior
         }
         this.HidePrefabs();
 
-        Debug.Log(transform.name + "; LoadPrefabs", gameObject);
+        Debug.LogWarning(transform.name + "; LoadPrefabs", gameObject);
     }
 
     protected virtual void HidePrefabs()

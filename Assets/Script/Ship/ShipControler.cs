@@ -1,9 +1,15 @@
 using UnityEngine;
 
-public class ShipControler : NewMonobehavior
+public class ShipControler : AbilityObjectControler
 {
+    [Header("Ship")]
     [SerializeField] protected Inventory inventory;
     public Inventory Inventory => inventory;
+
+    protected override string GetObjectTypeString()
+    {
+        return ObjectType.Ship.ToString();
+    }
 
     protected override void LoadComponents()
     {

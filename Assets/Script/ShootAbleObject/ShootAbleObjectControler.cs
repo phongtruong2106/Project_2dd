@@ -15,6 +15,8 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
     public ObjectMovement _objectMovement => objectMovement;
     [SerializeField] protected ObjectLookAtTarget objectLookAtTarget;
     public ObjectLookAtTarget _objectLookAtTarget => objectLookAtTarget;
+    [SerializeField] protected Spawner spawner;
+    public Spawner _spawner => spawner;
 
 
     protected override void LoadComponents()
@@ -26,6 +28,7 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
         this.LoadObjShooting();
         this.LoadObjMovement();
         this.LoadObjLookAtTarget();
+        this.LoadSpawner();
     }
 
     protected virtual void LoadModel()
@@ -68,6 +71,12 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
         if(this.objectLookAtTarget != null) return;
         this.objectLookAtTarget = GetComponentInChildren<ObjectLookAtTarget>();
         Debug.LogWarning(transform.name + ": LoadObjLookAtTarget", gameObject);
+    }
+    protected virtual void LoadSpawner()
+    {
+        if(this.spawner != null) return;
+        this.spawner = transform.parent?.parent?.GetComponent<Spawner>();
+        Debug.Log(transform.name + ": LoadSpawner", gameObject);
     }
     protected abstract string GetObjectTypeString();
 }

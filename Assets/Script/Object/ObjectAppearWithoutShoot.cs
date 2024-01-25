@@ -41,5 +41,6 @@ public class ObjectAppearWithoutShoot : ShootAbleObjectAbstract, IObjectAppearOb
     {
         this.shootAbleObjectControler._objectShooting.gameObject.SetActive(true);
         this.shootAbleObjectControler._objectLookAtTarget.gameObject.SetActive(true);
+        this.shootAbleObjectControler._spawner.Holder(transform.parent);
     }
 }

@@ -102,4 +102,9 @@ public abstract class Spawner : NewMonobehavior
         int rand = UnityEngine.Random.Range(0, this.prefabs.Count);
         return this.prefabs[rand];
     }
+
+    public virtual void Holder(Transform obj)
+    {
+        obj.parent = this.holder;
+    }
 }

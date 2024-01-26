@@ -11,7 +11,7 @@ public class ItemDropTest : NewMonobehavior
     protected override void Start()
     {
         base.Start();
-        InvokeRepeating(nameof(this.Droping), 2, 0.5f);
+        InvokeRepeating(nameof(this.Droping), 2, 0.2f);
     }
 
     protected virtual void Droping()

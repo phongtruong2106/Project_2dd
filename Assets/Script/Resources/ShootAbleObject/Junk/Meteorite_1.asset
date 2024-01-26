@@ -20,3 +20,7 @@ MonoBehaviour:
     dropRate: 100000
     minDrop: 0
     maxDrop: 0
+  - itemSO: {fileID: 11400000, guid: 3f44503d8ae697e47a9618cdf31f51f8, type: 2}
+    dropRate: 20000
+    minDrop: 0
+    maxDrop: 0

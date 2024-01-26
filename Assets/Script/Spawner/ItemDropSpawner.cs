@@ -6,6 +6,7 @@ public class ItemDropSpawner : Spawner
 {
     private static ItemDropSpawner instance;
     public static ItemDropSpawner Instance => instance;
+    [SerializeField] protected float gameDropRate = 1;
 
     protected override void Awake()
     {
@@ -14,17 +15,41 @@ public class ItemDropSpawner : Spawner
         ItemDropSpawner.instance = this;
     }
 
-    public virtual void Drop(List<DropRate> dropList, Vector3 pos, Quaternion rot)
+    public virtual List<ItemDropRate> Drop(List<ItemDropRate> dropList, Vector3 pos, Quaternion rot)
     {
-        //TODO: Drop with rating
-        if(dropList.Count < 1) return;
-        ItemCode itemCode = dropList[0].itemSO.itemCode;
-        Transform itemDrop = this.Spawn(itemCode.ToString(), pos, rot);
-        if(itemDrop == null) return;
-        itemDrop.gameObject.SetActive(true);
+        List<ItemDropRate> dropItems = new List<ItemDropRate>();
+        if(dropList.Count < 1) return dropItems;
+        dropItems = this.DropItems(dropList);
+        foreach(ItemDropRate itemDropRate in dropItems)
+        {
+            ItemCode itemCode = itemDropRate.itemSO.itemCode;
+            Transform itemDrop = this.Spawn(itemCode.ToString(), pos, rot);
+            if(itemDrop == null) continue;
+            itemDrop.gameObject.SetActive(true);
+        }
+
+        return dropItems;
+        
     }
 
-    public virtual Transform Drop(ItemInventory itemInventory, Vector3 pos, Quaternion rot)
+    protected virtual List<ItemDropRate> DropItems(List<ItemDropRate> items)
+    {
+        List<ItemDropRate> droppedItems = new List<ItemDropRate>();
+        float rate, itemRate;
+        foreach(ItemDropRate item in items)
+        {
+            rate = Random.Range(0,1f);
+            itemRate = item.dropRate * this.gameDropRate;
+            if( rate <= itemRate)
+            {
+                droppedItems.Add(item);
+            }
+        }
+
+        return droppedItems;
+    }
+
+    public virtual Transform DropFromInventory(ItemInventory itemInventory, Vector3 pos, Quaternion rot)
     {
         ItemCode itemCode = itemInventory.itemProfile.itemCode;
         Transform itemDrop = this.Spawn(itemCode.ToString(), pos, rot);

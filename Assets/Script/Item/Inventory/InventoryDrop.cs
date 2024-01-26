@@ -22,7 +22,7 @@ public class InventoryDrop : InventoryAbstract
     protected virtual void DropItemIndex(int itemIndex, Vector3 dropPos, Quaternion dropRot)
     {
         ItemInventory itemInventory = this.inventory.Items[itemIndex];
-        ItemDropSpawner.Instance.Drop(itemInventory, dropPos, dropRot);
+        ItemDropSpawner.Instance.DropFromInventory(itemInventory, dropPos, dropRot);
         this.inventory.Items.Remove(itemInventory);
     }
 }

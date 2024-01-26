@@ -7,5 +7,5 @@ public class JunkSO : ScriptableObject
 {
     public string junkName = "Junk";
     public int hpMax = 2;
-    public List<DropRate> dropList;
+    public List<ItemDropRate> dropList;
 }

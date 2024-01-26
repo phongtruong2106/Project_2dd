@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ship
   m_EditorClassIdentifier: 
   objName: ShootAble Object
-  objType: 0
+  objType: 4
   hpMax: 2
   dropList: []

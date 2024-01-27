@@ -9,7 +9,9 @@ public abstract class DamageReceiver : NewMonobehavior
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider; 
     [SerializeField] protected int hp = 1;
+    public int _hp => hp;
     [SerializeField] protected int maxHp = 1;
+    public int _maxHp => maxHp;
     [SerializeField] protected bool isDead = false;
 
     protected override void OnEnable()

@@ -17,6 +17,8 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
     public ObjectLookAtTarget _objectLookAtTarget => objectLookAtTarget;
     [SerializeField] protected Spawner spawner;
     public Spawner _spawner => spawner;
+    [SerializeField] protected DamageReceiver damageReceiver;
+    public DamageReceiver _damageReceiver => damageReceiver;
 
 
     protected override void LoadComponents()
@@ -29,6 +31,7 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
         this.LoadObjMovement();
         this.LoadObjLookAtTarget();
         this.LoadSpawner();
+        this.LoadDamageReceiver();
     }
 
     protected virtual void LoadModel()
@@ -77,6 +80,13 @@ public abstract class ShootAbleObjectControler : NewMonobehavior
         if(this.spawner != null) return;
         this.spawner = transform.parent?.parent?.GetComponent<Spawner>();
         Debug.Log(transform.name + ": LoadSpawner", gameObject);
+    }
+
+    protected virtual void LoadDamageReceiver()
+    {
+        if(this.damageReceiver != null) return;
+        this.damageReceiver = transform.GetComponentInChildren<DamageReceiver>();
+        Debug.Log(transform.name + ": LoadDamageReceiver", gameObject);
     }
     protected abstract string GetObjectTypeString();
 }

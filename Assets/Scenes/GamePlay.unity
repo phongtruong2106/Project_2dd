@@ -6914,8 +6914,9 @@ GameObject:
   - component: {fileID: 1716490055}
   - component: {fileID: 1716490054}
   - component: {fileID: 1716490053}
+  - component: {fileID: 1716490058}
   m_Layer: 5
-  m_Name: CanvasHP
+  m_Name: HPbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7018,6 +7019,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 932.6, y: 525}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1716490058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716490052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9464c08d14473549b9354283ea58486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootAbleObjectControler: {fileID: 350549101}
+  sliderHP: {fileID: 597611267}
 --- !u!1 &1728164262
 GameObject:
   m_ObjectHideFlags: 0

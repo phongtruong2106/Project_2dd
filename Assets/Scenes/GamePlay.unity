@@ -1323,6 +1323,58 @@ MonoBehaviour:
   points:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!1 &433932510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433932511}
+  - component: {fileID: 433932512}
+  m_Layer: 0
+  m_Name: AbilityWarp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433932511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433932510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1183312892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &433932512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433932510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c60894e6fc5c7545a2f54f81a870160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: {fileID: 1183312893}
+  timer: 2
+  delay: 2
+  isReady: 0
+  spawner: {fileID: 0}
+  isWarping: 0
+  warpDirection: {x: 0, y: 0, z: 0, w: 0}
+  warpSpeed: 1
 --- !u!1 &448358724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1989,7 @@ MonoBehaviour:
   abilities: {fileID: 0}
   timer: 2
   delay: 2
-  isRead: 0
+  isReady: 0
   spawner: {fileID: 2027008092}
 --- !u!1 &682495065
 GameObject:
@@ -3336,6 +3388,52 @@ Transform:
   - {fileID: 1765041312}
   m_Father: {fileID: 190466454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1183312891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183312892}
+  - component: {fileID: 1183312893}
+  m_Layer: 0
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183312892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183312891}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 433932511}
+  m_Father: {fileID: 1416072434}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183312893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183312891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504f54701e1163a43825415a44010f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityObjectControler: {fileID: 1416072435}
 --- !u!1 &1187906644
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,7 +3481,7 @@ MonoBehaviour:
   abilities: {fileID: 74249963}
   timer: 2
   delay: 2
-  isRead: 0
+  isReady: 0
   spawner: {fileID: 2027008092}
   minion: []
   minionLimit: 4
@@ -4348,6 +4446,7 @@ Transform:
   - {fileID: 1714921668}
   - {fileID: 1447494285}
   - {fileID: 390961869}
+  - {fileID: 1183312892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1416072435
@@ -7127,7 +7226,7 @@ SceneRoots:
   - {fileID: 1728164264}
   - {fileID: 916716931}
   - {fileID: 1607102013}
-  - {fileID: 1416072434}
   - {fileID: 331034025}
   - {fileID: 1055478421}
   - {fileID: 1639901307}
+  - {fileID: 1416072434}

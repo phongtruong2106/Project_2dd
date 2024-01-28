@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,9 @@ public class HPbar: NewMonobehavior
 
     protected virtual void FixedUpdate()
     {
+        // this.CheckTargetIsDead();
         this.ShowHP();
+        
     }
 
     protected override void LoadComponents()
@@ -43,16 +46,28 @@ public class HPbar: NewMonobehavior
         Debug.LogWarning(transform.name + ": LoadSpawner", gameObject);
     }
 
+    // protected virtual void CheckTargetIdDead()
+    // {
+    //     bool isDead = this.shootAbleObjectControler._damageReceiver.IsDead();
+    //     if(isDead) this.spawner.Despawn(transform);
+    //     return;
+    // }
 
     protected virtual void ShowHP()
     {
         if(this.shootAbleObjectControler == null) return;
-        
+        bool isDead = this.shootAbleObjectControler._damageReceiver.IsDead();
+        if(isDead)
+        {
+            this.spawner.Despawn(transform);
+            return;
+        } 
        float hp = this.shootAbleObjectControler._damageReceiver._hp;
        float maxHP = this.shootAbleObjectControler._damageReceiver._maxHp;
 
        this.sliderHP.SetCurrentHP(hp);
        this.sliderHP.SetMaxHP(maxHP);
+
     }
 
     public virtual void SetObjectControler(ShootAbleObjectControler shootAbleObjectControler)

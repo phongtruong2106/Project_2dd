@@ -55,7 +55,7 @@ public abstract class DamageReceiver : NewMonobehavior
 
     }
 
-    protected virtual bool IsDead()
+    public virtual bool IsDead()
     {
         return this.hp <= 0;
     }

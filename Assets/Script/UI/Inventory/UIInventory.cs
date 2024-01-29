@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class UIInventory : NewMonobehavior
+public class UIInventory : UIInventoryAbstact
 {
+    [Header("UI Inventory")]
     private static UIInventory instance;
     public static UIInventory _instance => instance;
 
@@ -18,11 +19,12 @@ public class UIInventory : NewMonobehavior
     {
         base.Start();
         //this.Close();
+        InvokeRepeating(nameof(this.ShowItem), 1, 1);
     }
 
     protected virtual void FixedUpdate()
     {
-        this.ShowItem();
+        //this.ShowItem();
     }
     public virtual void Toggle()
     {
@@ -33,20 +35,37 @@ public class UIInventory : NewMonobehavior
     }
     public virtual void Open()
     {
-        gameObject.SetActive(true);
+        this._uIInventoryControler.gameObject.SetActive(true);
         this.isOpen = true;
     }
 
     public virtual void Close()
     {
-        gameObject.SetActive(false);
+        this._uIInventoryControler.gameObject.SetActive(false);
         this.isOpen = false;
     }
 
     protected virtual void ShowItem()
     {
         if(!this.isOpen) return;
+        this.ClearItem();
         float itemCount = PlayerControler.Instance.CurrentShip.Inventory.Items.Count;
+        for(int i = 1; i <= itemCount; i++)
+        {
+            this.SpawnTest(i);
+        }
         Debug.Log("ItemCount: " + itemCount);
-     }
+    }
+
+    protected virtual void ClearItem()
+    {
+        this._uIInventoryControler._uIInventorySpawner.ClearItems();
+    }
+
+    protected virtual void SpawnTest(int i)
+    {
+        Transform uiItem = this._uIInventoryControler._uIInventorySpawner.Spawn(UIInventorySpawner.normalItem, Vector3.zero, Quaternion.identity);
+        uiItem.transform.localScale = new Vector3(1,1,1);
+        uiItem.gameObject.SetActive(true);
+    }
 }

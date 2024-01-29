@@ -35,4 +35,12 @@ public class UIInventorySpawner : Spawner
         this.uIInventoryControler = transform.parent.GetComponent<UIInventoryControler>();
         Debug.LogWarning(transform.name + ": UIInventoryControler", gameObject);
     }
+
+    public virtual void ClearItems()
+    {
+        foreach(Transform item in this.holder)
+        {
+            this.Despawn(item);
+        }
+    }
 }

@@ -12,15 +12,15 @@ public class Inventory : NewMonobehavior
     {
         base.Start(); 
         this.AddItem(ItemCode.Sword, 1);
-        // this.AddItem(ItemCode.IronOre, 30);
-        // this.AddItem(ItemCode.GoldOre, 30);
+        this.AddItem(ItemCode.GoldOre, 10);
+        this.AddItem(ItemCode.IronOre, 10);
        
     }
     public virtual bool AddItem(ItemInventory itemInventory)
     {
         int addCount = itemInventory.itemCount;
         ItemProfileSO itemProfileSO = itemInventory.itemProfile;
-        ItemCode itemCode = itemInventory.itemProfile.itemCode;
+        ItemCode itemCode = itemProfileSO.itemCode;
         ItemType itemType = itemProfileSO.itemType;
 
         if(itemType == ItemType.Equiment) return this.AddEquiment(itemInventory);  

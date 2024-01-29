@@ -12,8 +12,8 @@ public class Inventory : NewMonobehavior
     {
         base.Start(); 
         this.AddItem(ItemCode.Sword, 1);
-        this.AddItem(ItemCode.IronOre, 30);
-        this.AddItem(ItemCode.GoldOre, 30);
+        // this.AddItem(ItemCode.IronOre, 30);
+        // this.AddItem(ItemCode.GoldOre, 30);
        
     }
     public virtual bool AddItem(ItemInventory itemInventory)

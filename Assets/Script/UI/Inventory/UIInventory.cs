@@ -5,7 +5,7 @@ public class UIInventory : NewMonobehavior
     private static UIInventory instance;
     public static UIInventory _instance => instance;
 
-    protected bool isOpen = false;
+    protected bool isOpen = true;
 
     protected override void Awake()
     {
@@ -17,10 +17,14 @@ public class UIInventory : NewMonobehavior
     protected override void Start()
     {
         base.Start();
-        this.Close();
+        //this.Close();
     }
 
-    public virtual void Toggel()
+    protected virtual void FixedUpdate()
+    {
+        this.ShowItem();
+    }
+    public virtual void Toggle()
     {
         this.isOpen = !this.isOpen;
         if(this.isOpen) this.Open();
@@ -38,4 +42,11 @@ public class UIInventory : NewMonobehavior
         gameObject.SetActive(false);
         this.isOpen = false;
     }
+
+    protected virtual void ShowItem()
+    {
+        if(!this.isOpen) return;
+        float itemCount = PlayerControler.Instance.CurrentShip.Inventory.Items.Count;
+        Debug.Log("ItemCount: " + itemCount);
+     }
 }

@@ -5,7 +5,7 @@ public class PlayerControler : NewMonobehavior
     private static PlayerControler instance;
     public static PlayerControler Instance => instance;
     [SerializeField] protected ShipControler currentShip;
-    public ShipControler CurrentShip=> currentShip;
+    public ShipControler CurrentShip => currentShip;
     [SerializeField] protected PlayerPickup playerPickup;
     public PlayerPickup PlayerPickup => playerPickup;
 
@@ -29,5 +29,5 @@ public class PlayerControler : NewMonobehavior
         Debug.Log(transform.name + ": LoadPlayerPickup", gameObject);
 
     }
-
-}
+    
+}   

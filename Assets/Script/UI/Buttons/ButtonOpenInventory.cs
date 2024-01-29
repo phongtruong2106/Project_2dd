@@ -4,6 +4,6 @@ public class ButtonOpenInventory : BaseButton
 {
     protected override void OnClick()
     {
-        UIInventory._instance.Toggel();
+        UIInventory._instance.Toggle();
     }
 }

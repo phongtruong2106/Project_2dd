@@ -42,12 +42,15 @@ TagManager:
   - name: BackGround
     uniqueID: 211514835
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Player
+    uniqueID: 382169367
     locked: 0
   - name: MotherShip
     uniqueID: 3800842429
     locked: 0
-  - name: Player
-    uniqueID: 382169367
+  - name: UI
+    uniqueID: 739336437
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

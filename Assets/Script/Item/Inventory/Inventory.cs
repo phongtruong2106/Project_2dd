@@ -172,6 +172,7 @@ public class Inventory : NewMonobehavior
     {
         ItemInventory itemInventory = new ItemInventory
         {
+            itemID = ItemInventory.RandomID(),
             itemProfile = itemProfile,
             maxStack = itemProfile.defaultMaxStack
         };

@@ -8,6 +8,8 @@ public class UIInventory : UIInventoryAbstact
     public static UIInventory _instance => instance;
 
     protected bool isOpen = true;
+    [SerializeField] protected UIInventorySort inventorySort = UIInventorySort.ByName;
+
 
     protected override void Awake()
     {
@@ -20,7 +22,7 @@ public class UIInventory : UIInventoryAbstact
     {
         base.Start();
         //this.Close();
-        InvokeRepeating(nameof(this.ShowItem), 1, 1);
+        InvokeRepeating(nameof(this.ShowItems), 1, 1);
     }
 
     protected virtual void FixedUpdate()
@@ -46,7 +48,7 @@ public class UIInventory : UIInventoryAbstact
         this.isOpen = false;
     }
 
-    protected virtual void ShowItem()
+    protected virtual void ShowItems()
     {
         if(!this.isOpen) return;
         this.ClearItem();
@@ -56,6 +58,8 @@ public class UIInventory : UIInventoryAbstact
         {
             spawner.SpawnItems(item);
         }
+
+        this.SortItems();
     }
 
     protected virtual void ClearItem()
@@ -63,4 +67,19 @@ public class UIInventory : UIInventoryAbstact
         this._uIInventoryControler._uIInventorySpawner.ClearItems();
     }
 
+    protected virtual void SortItems()
+    {
+        switch(this.inventorySort)
+        {
+            case UIInventorySort.ByName:
+                Debug.Log("UIInventorySort.ByName");
+                break;
+            case UIInventorySort.ByCount:
+                Debug.Log("UIInventorySort.ByCount");
+                break;
+            default:
+                Debug.Log("UIInventorySort.NoSort");
+                break;
+        }
+    }
 }

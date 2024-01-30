@@ -1,7 +1,8 @@
 using System;
 [Serializable]
 public class ItemInventory
-{
+{   
+    public string itemID;
     public ItemProfileSO itemProfile;
     public int itemCount = 0;
     public int maxStack = 7;
@@ -9,11 +10,18 @@ public class ItemInventory
 
     public virtual ItemInventory Clone()
     {
-        ItemInventory item = new ItemInventory();
-        item.itemProfile = this.itemProfile;
-        item.itemCount = this.itemCount;
-        item.upgradeLevel = this.upgradeLevel;
-
+        ItemInventory item = new ItemInventory()
+        {
+            itemID = ItemInventory.RandomID(),
+            itemProfile = this.itemProfile,
+            itemCount = this.itemCount,
+            upgradeLevel = this.upgradeLevel
+        };
         return item;
+    }
+
+    public static String RandomID()
+    {
+        return RandomStringGenerator.Generate(27);
     }
 }

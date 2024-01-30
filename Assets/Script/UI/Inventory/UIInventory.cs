@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIInventory : UIInventoryAbstact
@@ -49,12 +50,12 @@ public class UIInventory : UIInventoryAbstact
     {
         if(!this.isOpen) return;
         this.ClearItem();
-        float itemCount = PlayerControler.Instance.CurrentShip.Inventory.Items.Count;
-        for(int i = 1; i <= itemCount; i++)
+        List<ItemInventory> items = PlayerControler.Instance.CurrentShip.Inventory.Items; 
+        UIInventorySpawner spawner = this._uIInventoryControler._uIInventorySpawner;
+        foreach(ItemInventory item in items)
         {
-            this.SpawnTest(i);
+            spawner.SpawnItems(item);
         }
-        Debug.Log("ItemCount: " + itemCount);
     }
 
     protected virtual void ClearItem()
@@ -62,10 +63,4 @@ public class UIInventory : UIInventoryAbstact
         this._uIInventoryControler._uIInventorySpawner.ClearItems();
     }
 
-    protected virtual void SpawnTest(int i)
-    {
-        Transform uiItem = this._uIInventoryControler._uIInventorySpawner.Spawn(UIInventorySpawner.normalItem, Vector3.zero, Quaternion.identity);
-        uiItem.transform.localScale = new Vector3(1,1,1);
-        uiItem.gameObject.SetActive(true);
-    }
 }

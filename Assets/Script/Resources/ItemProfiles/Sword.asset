@@ -16,6 +16,7 @@ MonoBehaviour:
   itemType: 2
   itemName: Sword
   defaultMaxStack: 7
+  sprite: {fileID: 21300000, guid: d96d397348d094e43b5e43079dd78876, type: 3}
   upgradeLevels:
   - ingredients:
     - itemProfile: {fileID: 11400000, guid: 3f44503d8ae697e47a9618cdf31f51f8, type: 2}

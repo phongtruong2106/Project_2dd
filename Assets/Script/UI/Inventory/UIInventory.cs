@@ -21,8 +21,6 @@ public class UIInventory : UIInventoryAbstact
     protected override void Start()
     {
         base.Start();
-        //this.Close();
-
         InvokeRepeating(nameof(this.ShowItems), 1, 1);
     }
 

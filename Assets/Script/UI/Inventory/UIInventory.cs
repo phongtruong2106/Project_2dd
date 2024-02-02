@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class UIInventory : UIInventoryAbstact
 {
-    [Header("UI Inventory")]
+   [Header("UI Inventory")]
     private static UIInventory instance;
     public static UIInventory _instance => instance;
 
     protected bool isOpen = true;
-    //protected bool isSorting = false;
     [SerializeField] protected UIInventorySort inventorySort = UIInventorySort.ByName;
-
 
     protected override void Awake()
     {
         base.Awake();
-        if(UIInventory.instance != null) Debug.LogError("Only 1 UIInventory allow to ");
+        if (UIInventory.instance != null) Debug.LogError("Only 1 UIInventory allow to exist");
         UIInventory.instance = this;
     }
 
@@ -24,6 +22,7 @@ public class UIInventory : UIInventoryAbstact
     {
         base.Start();
         //this.Close();
+
         InvokeRepeating(nameof(this.ShowItems), 1, 1);
     }
 
@@ -31,13 +30,14 @@ public class UIInventory : UIInventoryAbstact
     {
         //this.ShowItem();
     }
+
     public virtual void Toggle()
     {
         this.isOpen = !this.isOpen;
-        if(this.isOpen) this.Open();
+        if (this.isOpen) this.Open();
         else this.Close();
-
     }
+
     public virtual void Open()
     {
         this._uIInventoryControler.gameObject.SetActive(true);
@@ -52,11 +52,14 @@ public class UIInventory : UIInventoryAbstact
 
     protected virtual void ShowItems()
     {
-        if(!this.isOpen) return;
-        this.ClearItem();
-        List<ItemInventory> items = PlayerControler.Instance.CurrentShip.Inventory.Items; 
+        if (!this.isOpen) return;
+
+        this.ClearItems();
+
+        List<ItemInventory> items = PlayerControler.Instance.CurrentShip.Inventory.Items;
         UIInventorySpawner spawner = this._uIInventoryControler._uIInventorySpawner;
-        foreach(ItemInventory item in items)
+
+        foreach (ItemInventory item in items)
         {
             spawner.SpawnItems(item);
         }
@@ -64,37 +67,39 @@ public class UIInventory : UIInventoryAbstact
         this.SortItems();
     }
 
-    protected virtual void ClearItem()
+    protected virtual void ClearItems()
     {
         this._uIInventoryControler._uIInventorySpawner.ClearItems();
     }
 
     protected virtual void SortItems()
     {
-        switch(this.inventorySort)
+        switch (this.inventorySort)
         {
             case UIInventorySort.ByName:
                 this.SortByName();
                 break;
             case UIInventorySort.ByCount:
-                Debug.Log("UIInventorySort.ByCount");
+                Debug.Log("InventorySort.ByCount");
                 break;
             default:
-                Debug.Log("UIInventorySort.NoSort");
+                Debug.Log("InventorySort.NoSort");
                 break;
         }
     }
 
     protected virtual void SortByName()
     {
-        Debug.Log("===== Sort By Name-=====   ");
+        Debug.Log("== InventorySort.ByName ====");
+
         int itemCount = this._uIInventoryControler._content.childCount;
         Transform currentItem, nextItem;
         UIItemInventory currentUIItem, nextUIItem;
         ItemProfileSO currentProfile, nextProfile;
-        String currentName, nextName;
+        string currentName, nextName;
 
-        for(int i = 0; i < itemCount - 1; i++)
+        bool isSorting = false;
+        for (int i = 0; i < itemCount - 1; i++)
         {
             currentItem = this._uIInventoryControler._content.GetChild(i);
             nextItem = this._uIInventoryControler._content.GetChild(i + 1);
@@ -109,24 +114,25 @@ public class UIInventory : UIInventoryAbstact
             nextName = nextProfile.itemName;
 
             int compare = string.Compare(currentName, nextName);
+
             if(compare == 1)
             {
                 this.SwapItems(currentItem, nextItem);
-                ///isSorting = true;
+                isSorting = true;
             }
 
-            Debug.Log(i+ ": " + currentName + " | " + nextName + " = " + compare);
+            Debug.Log(i + ": " + currentName + " | " + nextName + " = " + compare);
         }
 
-        //de Quy
-        //if(isSorting) this.SortByName();
+        if (isSorting) this.SortByName();
     }
+
     protected virtual void SwapItems(Transform currentItem, Transform nextItem)
     {
         int currentIndex = currentItem.GetSiblingIndex();
         int nextIndex = nextItem.GetSiblingIndex();
 
-        currentItem.SetSiblingIndex(currentIndex);
-        nextItem.SetSiblingIndex(nextIndex);
+        currentItem.SetSiblingIndex(nextIndex);
+        nextItem.SetSiblingIndex(currentIndex);
     }
 }

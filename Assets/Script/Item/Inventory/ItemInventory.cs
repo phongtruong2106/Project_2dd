@@ -20,7 +20,7 @@ public class ItemInventory
         return item;
     }
 
-    public static String RandomID()
+      public static string RandomID()
     {
         return RandomStringGenerator.Generate(27);
     }

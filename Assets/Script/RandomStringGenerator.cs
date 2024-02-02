@@ -1,3 +1,5 @@
+using System;
+using System.Text;
 
 public class RandomStringGenerator
 {
@@ -5,11 +7,16 @@ public class RandomStringGenerator
 
     public static string Generate(int length)
     {
-        string randomString = "";
+        if (length <= 0)
+        {
+            throw new ArgumentException("Length must be greater than 0", nameof(length));
+        }
+
+        StringBuilder sb = new StringBuilder(length);
         for (int i = 0; i < length; i++)
         {
-            randomString += chars[UnityEngine.Random.Range(0, chars.Length)];
+            sb.Append(chars[UnityEngine.Random.Range(0, chars.Length)]);
         }
-        return randomString;
+        return sb.ToString();
     }
 }

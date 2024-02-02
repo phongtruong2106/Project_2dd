@@ -72,22 +72,7 @@ public class UIInventory : UIInventoryAbstact
 
     protected virtual void SortItems()
     {
-        switch (this.inventorySort)
-        {
-            case UIInventorySort.ByName:
-                this.SortByName();
-                break;
-            case UIInventorySort.ByCount:
-                Debug.Log("InventorySort.ByCount");
-                break;
-            default:
-                Debug.Log("InventorySort.NoSort");
-                break;
-        }
-    }
-
-    protected virtual void SortByName()
-    {
+        if(this.inventorySort == UIInventorySort.NoSort) return;
         Debug.Log("== InventorySort.ByName ====");
 
         int itemCount = this._uIInventoryControler._content.childCount;
@@ -95,6 +80,7 @@ public class UIInventory : UIInventoryAbstact
         UIItemInventory currentUIItem, nextUIItem;
         ItemProfileSO currentProfile, nextProfile;
         string currentName, nextName;
+        int currentCount, nextCount;
 
         bool isSorting = false;
         for (int i = 0; i < itemCount - 1; i++)
@@ -108,21 +94,32 @@ public class UIInventory : UIInventoryAbstact
             currentProfile = currentUIItem._itemInventory.itemProfile;
             nextProfile = nextUIItem._itemInventory.itemProfile;
 
-            currentName = currentProfile.itemName;
-            nextName = nextProfile.itemName;
+            bool isSwap = false;
+            switch (this.inventorySort)
+            {
+                case UIInventorySort.ByName:
+                    currentName = currentProfile.itemName;
+                    nextName = nextProfile.itemName;
+                    isSwap = string.Compare(currentName, nextName) == -1;
+                    Debug.Log(i + ": " + currentName + " | " + nextName + " = " + isSwap);
+                    break;
+                case UIInventorySort.ByCount:
+                    currentCount = currentUIItem._itemInventory.itemCount;
+                    nextCount = nextUIItem._itemInventory.itemCount;
+                    isSwap = currentCount < nextCount;
+                    break;
+            }
 
-            int compare = string.Compare(currentName, nextName);
-
-            if(compare == 1)
+            if(isSwap)
             {
                 this.SwapItems(currentItem, nextItem);
                 isSorting = true;
             }
 
-            Debug.Log(i + ": " + currentName + " | " + nextName + " = " + compare);
+            
         }
 
-        if (isSorting) this.SortByName();
+        if (isSorting) this.SortItems();
     }
 
     protected virtual void SwapItems(Transform currentItem, Transform nextItem)

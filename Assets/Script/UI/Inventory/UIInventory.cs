@@ -73,7 +73,7 @@ public class UIInventory : UIInventoryAbstact
     protected virtual void SortItems()
     {
         if(this.inventorySort == UIInventorySort.NoSort) return;
-        Debug.Log("== InventorySort.ByName ====");
+       //Debug.Log("== InventorySort.ByName ====");
 
         int itemCount = this._uIInventoryControler._content.childCount;
         Transform currentItem, nextItem;
@@ -101,7 +101,7 @@ public class UIInventory : UIInventoryAbstact
                     currentName = currentProfile.itemName;
                     nextName = nextProfile.itemName;
                     isSwap = string.Compare(currentName, nextName) == -1;
-                    Debug.Log(i + ": " + currentName + " | " + nextName + " = " + isSwap);
+                   // Debug.Log(i + ": " + currentName + " | " + nextName + " = " + isSwap);
                     break;
                 case UIInventorySort.ByCount:
                     currentCount = currentUIItem._itemInventory.itemCount;

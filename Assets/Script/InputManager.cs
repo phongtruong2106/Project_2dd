@@ -14,10 +14,6 @@ public class InputManager : MonoBehaviour
     protected Vector4 direction;
     public Vector4 _direction => direction;
 
-    
-
-
-
     private void Awake() 
     {
         if(InputManager.instance != null) Debug.LogError("Only one InputManager allow to exist");
@@ -53,10 +49,7 @@ public class InputManager : MonoBehaviour
         if(this.direction.z == 0) this.direction.z = Input.GetKeyDown(KeyCode.UpArrow) ? 1 : 0;
         this.direction.w = Input.GetKeyDown(KeyCode.S) ? 1 : 0;
         if(this.direction.w == 0) this.direction.w = Input.GetKeyDown(KeyCode.DownArrow) ? 1 : 0;
-
-        // if(this.direction.x == 1) Debug.Log("left");
-        // if(this.direction.y == 1) Debug.Log("Right");
-        // if(this.direction.z == 1) Debug.Log("Up");
-        // if(this.direction.w == 1) Debug.Log("Down");
     }
+
+    
 }

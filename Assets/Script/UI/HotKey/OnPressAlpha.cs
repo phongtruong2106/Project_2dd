@@ -20,7 +20,7 @@ public class OnPressAlpha : UIHotKeyAbstract
 
     protected virtual void Press(int alpha)
     {
-        Debug.Log("Press: "  + alpha);
+        //Debug.Log("Press: "  + alpha);
         ItemSlot itemSlot = this.hotKeyController.itemSlots[alpha - 1];
         Pressable pressable = itemSlot.GetComponentInChildren<Pressable>();
         if(pressable == null) return;

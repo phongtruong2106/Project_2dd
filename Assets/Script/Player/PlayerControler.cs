@@ -9,6 +9,9 @@ public class PlayerControler : NewMonobehavior
     [SerializeField] protected PlayerPickup playerPickup;
     public PlayerPickup PlayerPickup => playerPickup;
 
+    [SerializeField] protected PlayerAbility playerAbility;
+    public PlayerAbility _playerAbility => playerAbility;
+
     protected override void Awake()
     {
         base.Awake();
@@ -20,14 +23,22 @@ public class PlayerControler : NewMonobehavior
     {
         base.LoadComponents();
         this.LoadPlayerPickup();
+        this.LoadPLayerAbility();
     }
 
     protected virtual void LoadPlayerPickup()
     {
         if(this.playerPickup != null) return;
-        this.playerPickup = transform.GetComponent<PlayerPickup>();
+        this.playerPickup = transform.GetComponentInChildren<PlayerPickup>();
         Debug.Log(transform.name + ": LoadPlayerPickup", gameObject);
 
+    }
+
+    protected virtual void LoadPLayerAbility()
+    {
+        if(this.playerAbility != null) return;
+        this.playerAbility = transform.GetComponentInChildren<PlayerAbility>();
+        Debug.Log(transform.name + ": LoadPLayerAbility", gameObject);
     }
     
 }   

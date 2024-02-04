@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class OnPressAlpha : UIHotKeyAbstract
 {
+
+    private const int numberKeyBoardAlpha = 7;
     private void Update()
     {
         this.CheckAlphaIsPress();
@@ -9,13 +11,13 @@ public class OnPressAlpha : UIHotKeyAbstract
 
     protected virtual void CheckAlphaIsPress()
     {
-        if(InputHotKeyManager.Instance.isAlpha1) this.Press(1);
-        if(InputHotKeyManager.Instance.isAlpha2) this.Press(2);
-        if(InputHotKeyManager.Instance.isAlpha3) this.Press(3);
-        if(InputHotKeyManager.Instance.isAlpha4) this.Press(4);
-        if(InputHotKeyManager.Instance.isAlpha5) this.Press(5);
-        if(InputHotKeyManager.Instance.isAlpha6) this.Press(6);
-        if(InputHotKeyManager.Instance.isAlpha7) this.Press(7);
+        for(int alpha = 1; alpha <= numberKeyBoardAlpha; alpha++)
+        {
+            if(InputHotKeyManager.Instance.IsAlphaPressed(alpha))
+            {
+                Press(alpha);
+            }
+        }
     }
 
     protected virtual void Press(int alpha)

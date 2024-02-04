@@ -37,4 +37,18 @@ public class InputHotKeyManager : MonoBehaviour
         this.isAlpha6  = Input.GetKeyDown(KeyCode.Alpha6);
         this.isAlpha7  = Input.GetKeyDown(KeyCode.Alpha7);
     }
+    public bool IsAlphaPressed(int alpha)
+    {
+        switch (alpha)
+        {
+            case 1: return isAlpha1;
+            case 2: return isAlpha2;
+            case 3: return isAlpha3;
+            case 4: return isAlpha4;
+            case 5: return isAlpha5;
+            case 6: return isAlpha6;
+            case 7: return isAlpha7;
+            default: return false;
+        }
+    }
 }

@@ -8,13 +8,7 @@ public class InputHotKeyManager : MonoBehaviour
     protected static InputHotKeyManager instance;
     public static InputHotKeyManager Instance {get => instance;}
     
-    public bool isAlpha1 = false;
-    public bool isAlpha2 = false;
-    public bool isAlpha3 = false;
-    public bool isAlpha4 = false;
-    public bool isAlpha5 = false;
-    public bool isAlpha6 = false;
-    public bool isAlpha7 = false;
+    private bool[] isAlphaPressed = new bool[7];
 
     private void Awake() 
     {
@@ -29,26 +23,14 @@ public class InputHotKeyManager : MonoBehaviour
 
     protected virtual void GetHostKeyPress()
     {
-        this.isAlpha1 = Input.GetKeyDown(KeyCode.Alpha1);
-        this.isAlpha2  = Input.GetKeyDown(KeyCode.Alpha2);
-        this.isAlpha3  = Input.GetKeyDown(KeyCode.Alpha3);
-        this.isAlpha4  = Input.GetKeyDown(KeyCode.Alpha4);
-        this.isAlpha5  = Input.GetKeyDown(KeyCode.Alpha5);
-        this.isAlpha6  = Input.GetKeyDown(KeyCode.Alpha6);
-        this.isAlpha7  = Input.GetKeyDown(KeyCode.Alpha7);
+        for(int alpha = 1; alpha <= 7; alpha++)
+        {
+            isAlphaPressed[alpha - 1] = Input.GetKeyDown(KeyCode.Alpha0 + alpha);
+        }
     }
     public bool IsAlphaPressed(int alpha)
     {
-        switch (alpha)
-        {
-            case 1: return isAlpha1;
-            case 2: return isAlpha2;
-            case 3: return isAlpha3;
-            case 4: return isAlpha4;
-            case 5: return isAlpha5;
-            case 6: return isAlpha6;
-            case 7: return isAlpha7;
-            default: return false;
-        }
+        if(alpha < 1 || alpha > 7) return false;
+        return isAlphaPressed[alpha - 1];
     }
 }
